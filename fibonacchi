@@ -1,0 +1,56 @@
+import java.util.Scanner;
+public class HelloWorld{
+    
+    static void reverse(int[] arr,int N){
+        for(int i=N-1;i>=0;i--){
+            System.out.println(arr[i]);
+        }
+    }
+    
+    static void count(int[] arr,int N){
+        int count=0;
+        for(int i=0;i<N;i++){
+            if(arr[i]%2==0)
+                count++;
+        }
+        System.out.println("Even: "+count+"\nOdd: "+(N-count));
+    }
+    
+    static void add(int[] arr,int N){
+        for(int i=0;i<N;i++){
+            if(arr[i]%2==0)
+                System.out.println((arr[i]+4));
+            else
+                System.out.println((arr[i]+3));
+        }
+    }
+    
+    
+    public static void main(String []args){
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int s1 = 0;
+        int s2 = 1;
+        int sum = 0;
+        int[] arr= new int[50];
+        int i = 0;
+        arr[0]=s1;
+        arr[1]=s2;
+        System.out.println(s1+"\n"+s2);
+        while(sum<N){
+            sum = s1 + s2;
+            s1 = s2;
+            s2 = sum;
+            arr[i+2]=sum;
+            i = i+1;
+            System.out.println(sum);
+        }
+        System.out.println();
+        reverse(arr,i+2);
+        System.out.println();
+        count(arr,i+2);
+        System.out.println();
+        add(arr,i+2);
+        //System.out.println("Hello World");
+     }
+}
